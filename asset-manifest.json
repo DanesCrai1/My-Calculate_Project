@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/My-Calculate_Project/static/css/main.d5c1066e.css",
-    "main.js": "/My-Calculate_Project/static/js/main.d906aa21.js",
+    "main.js": "/My-Calculate_Project/static/js/main.36a1a4e4.js",
     "static/media/salesIsland.svg": "/My-Calculate_Project/static/media/salesIsland.6a8e60bb30b62e3672a16f97e95b5450.svg",
     "static/media/sales.svg": "/My-Calculate_Project/static/media/sales.2eaf5937b92eaac20c48d21a26f8e965.svg",
     "index.html": "/My-Calculate_Project/index.html",
     "main.d5c1066e.css.map": "/My-Calculate_Project/static/css/main.d5c1066e.css.map",
-    "main.d906aa21.js.map": "/My-Calculate_Project/static/js/main.d906aa21.js.map"
+    "main.36a1a4e4.js.map": "/My-Calculate_Project/static/js/main.36a1a4e4.js.map"
   },
   "entrypoints": [
     "static/css/main.d5c1066e.css",
-    "static/js/main.d906aa21.js"
+    "static/js/main.36a1a4e4.js"
   ]
 }
