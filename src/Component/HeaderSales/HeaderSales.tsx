@@ -25,7 +25,7 @@ export const HeaderSales = memo((props: HeaderSalesProps) => {
             </div>
             <div className='wrapper_sales'>
                 <div className='block_sales'>
-                    <button onClick={setSales} className={`btn_sales ${sales ? 'active' : ''}`}>Скидка активирована</button>
+                    <button onClick={setSales} className={`btn_sales ${sales ? 'active' : ''}`}>Скидка за навыки</button>
                     <img src={require('shared/assets/image/addons/sales.svg').default} alt='Sales' className='sales_svg' />
                 </div>
             </div>

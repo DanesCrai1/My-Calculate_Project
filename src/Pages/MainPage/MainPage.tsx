@@ -98,8 +98,8 @@ export const MainPage = memo(() => {
                     <MainItem src={MainItemSrc.BEAM} name="beam" onChange={inputsChange} value={inputsValues.beam} btnName="beamBtn" btnClick={showResult} />
                     <CalcComponent options={
                         (salesIsland) ? {
-                            wood: String(Number(result.beam) * 93),
-                            iron: String(Number(result.beam) * 5),
+                            wood: String(Number(result.beam) * 70),
+                            iron: String(Number(result.beam) * 4),
                             hour: String(Number(result.beam) * 5)
                         } : (sales) ? {
                             wood: String(Number(result.beam) * 93),
@@ -174,6 +174,9 @@ export const MainPage = memo(() => {
                     />
                 </div>
             </div>
+            <footer>
+
+            </footer>
         </div>
     );
 });
