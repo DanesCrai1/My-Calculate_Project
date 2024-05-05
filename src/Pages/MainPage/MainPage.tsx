@@ -6,22 +6,36 @@ import { craftCreates } from "shared/craft/craft";
 import { creates } from "shared/craft/creates";
 import { statusHidden } from "shared/craft/statusHidden";
 
+const setStorage = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+const getStorage = (key, value) => {
+    if (localStorage.getItem(key)) {
+        return JSON.parse(localStorage.getItem(key));
+    }
+    return value;
+}
+
 export const MainPage = memo(() => {
-    const [inputsValues, setValues] = useState(creates);
-    const [result, setResult] = useState(craftCreates);
-    const [hidden, setHidden] = useState(statusHidden)
-    const [sales, setSales] = useState(false);
-    const [salesIsland, setSalesIsland] = useState(false);
+    const [inputsValues, setValues] = useState(getStorage('LOCAL_STORAGE_RESULT_ITEM', creates));
+    const [result, setResult] = useState(getStorage('LOCAL_STORAGE_RESULT_ITEM', craftCreates));
+    const [hidden, setHidden] = useState(getStorage('LOCAL_STORAGE_HIDDEN_STATUS', statusHidden));
+    const [sales, setSales] = useState(getStorage('LOCAL_STORAGE_SALES', false));
+    const [salesIsland, setSalesIsland] = useState(getStorage('LOCAL_STORAGE_SALES_ISLAND', false));
 
     const showResult = useCallback((e) => {
         const name = e.target.name.match(/^(.*)Btn/)[1]; // name: bronze | beam | bulkhead | canvas | plates
 
         setHidden({ ...hidden, [name]: false }); // show elem
+        setStorage('LOCAL_STORAGE_HIDDEN_STATUS', { ...hidden, [name]: false });
+        setStorage('LOCAL_STORAGE_RESULT_ITEM', inputsValues);
         setResult(inputsValues); // show result
     }, [hidden, inputsValues]);
 
     const hideResult = useCallback((name) => {
         setHidden({ ...hidden, [name]: true }); // hidden elem
+        setStorage('LOCAL_STORAGE_HIDDEN_STATUS', { ...hidden, [name]: true });
     }, [hidden]);
 
     const inputsChange = useCallback((e) => {
@@ -41,14 +55,20 @@ export const MainPage = memo(() => {
                 notSales={() => {
                     setSales(false)
                     setSalesIsland(false)
+                    localStorage.setItem('LOCAL_STORAGE_SALES', JSON.stringify(false));
+                    localStorage.setItem('LOCAL_STORAGE_SALES_ISLAND', JSON.stringify(false));
                 }}
                 sales={sales} setSales={() => {
                     setSales(true)
                     setSalesIsland(false)
+                    setStorage('LOCAL_STORAGE_SALES', true);
+                    setStorage('LOCAL_STORAGE_SALES_ISLAND', false);
                 }}
                 salesIsland={salesIsland} setSalesIsland={() => {
                     setSales(false)
                     setSalesIsland(true)
+                    setStorage('LOCAL_STORAGE_SALES', false);
+                    setStorage('LOCAL_STORAGE_SALES_ISLAND', true);
                 }}
             />
             <div className="items-wrapper">
