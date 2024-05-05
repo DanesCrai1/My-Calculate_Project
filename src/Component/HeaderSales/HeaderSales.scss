@@ -1,0 +1,39 @@
+.btn_sales {
+    margin-top: 20px;
+    height: 40px;
+
+    width: 300px;
+    background-color: #a7a7a7;
+    border: none;
+    border-radius: 15px;
+}
+
+.btn_not_sales {
+    margin-right: 50px;
+}
+
+.header_sales {
+    display: flex;
+    flex-direction: column;
+}
+
+.active {
+    background-color: #fff;
+}
+
+.wrapper_sales {
+    display: flex;
+    justify-content: center;
+}
+
+.sales_svg {
+    margin: 20px 10px 0px 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.block_sales {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

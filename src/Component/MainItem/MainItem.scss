@@ -1,0 +1,58 @@
+.block_place {
+    position: relative;
+    width: 335px;
+    bottom: 63px;
+    margin: 100px 20px;
+}
+
+.img_create {
+    position: absolute;
+    height: auto;
+
+    width: 335px;
+    height: 64px;
+}
+
+.place_input {
+    position: absolute;
+    font-size: 16px;
+    text-align: center;
+
+    left: 252px;
+    top: 31px;
+    background-color: #fff;
+    border: none;
+
+    height: 30px;
+    width: 77.55px;
+}
+
+.place_btn {
+    position: absolute;
+    height: 32px;
+    left: 252px;
+    background-color: #fff;
+    border: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+button,
+img {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently */
+}
+
+button:hover {
+    background-color: #ececec;
+    cursor: pointer;
+}

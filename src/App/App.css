@@ -1,0 +1,16 @@
+.items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 900px;
+}
+
+button:hover {
+  background-color: #ececec;
+  cursor: pointer;
+}
+
+.wrapper-sales {
+  display: flex;
+  justify-content: center;
+}
