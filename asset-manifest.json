@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/app-calculate-wosb/static/css/main.4c02d0dc.css",
-    "main.js": "/app-calculate-wosb/static/js/main.528de65c.js",
+    "main.css": "/app-calculate-wosb/static/css/main.09fe6c14.css",
+    "main.js": "/app-calculate-wosb/static/js/main.8880b59c.js",
     "static/media/salesIsland.svg": "/app-calculate-wosb/static/media/salesIsland.6a8e60bb30b62e3672a16f97e95b5450.svg",
     "static/media/sales.svg": "/app-calculate-wosb/static/media/sales.2eaf5937b92eaac20c48d21a26f8e965.svg",
     "index.html": "/app-calculate-wosb/index.html",
-    "main.4c02d0dc.css.map": "/app-calculate-wosb/static/css/main.4c02d0dc.css.map",
-    "main.528de65c.js.map": "/app-calculate-wosb/static/js/main.528de65c.js.map"
+    "main.09fe6c14.css.map": "/app-calculate-wosb/static/css/main.09fe6c14.css.map",
+    "main.8880b59c.js.map": "/app-calculate-wosb/static/js/main.8880b59c.js.map"
   },
   "entrypoints": [
-    "static/css/main.4c02d0dc.css",
-    "static/js/main.528de65c.js"
+    "static/css/main.09fe6c14.css",
+    "static/js/main.8880b59c.js"
   ]
 }
