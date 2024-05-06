@@ -13,6 +13,7 @@ interface MainItemProps {
     src?: any;
     alt?: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onClickKey: (e: any) => void;
     btnClick?: (e) => void;
     btnName?: string;
     value: string;
@@ -24,6 +25,7 @@ const MainItem = (props: MainItemProps) => {
         src,
         alt,
         onChange,
+        onClickKey,
         value,
         name,
         btnClick,
@@ -35,7 +37,7 @@ const MainItem = (props: MainItemProps) => {
             <div className='block_place'>
                 <img src={src} alt={alt} className='img_create'/>
                 <div className='place_calc'>
-                <input type="number" placeholder="" className='place_input' value={value} onChange={onChange} name={name} />
+                <input type="number" placeholder="" className='place_input' value={value} onChange={onChange} onKeyUp={onClickKey} name={name} />
                 <button onClick={btnClick} name={btnName} className='place_btn'>Рассчитать</button>
                 </div>
             </div>

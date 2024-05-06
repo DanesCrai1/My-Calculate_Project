@@ -11,28 +11,34 @@
 
     width: 335px;
     height: 64px;
+    border: 1px solid #633;
 }
 
 .place_input {
     position: absolute;
     font-size: 16px;
     text-align: center;
-
-    left: 252px;
-    top: 31px;
-    background-color: #fff;
+    left: 242px;
+    top: 34px;
+    background-color: #FFF;
+    border-radius: 6px;
     border: none;
-
-    height: 30px;
+    height: 23px;
     width: 77.55px;
 }
 
 .place_btn {
     position: absolute;
-    height: 32px;
-    left: 252px;
-    background-color: #fff;
+    height: 25px;
+
+    left: 242px;
+    top: 5px;
+
+    background-color: #aba599;
+    color: white;
+    
     border: none;
+    border-radius: 6px;
 }
 
 input:focus,

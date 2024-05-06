@@ -1,3 +1,4 @@
+import { Footer } from "Component/Footer/Footer";
 import { HeaderSales } from "Component/HeaderSales/HeaderSales"
 import MainItem, { MainItemSrc } from "Component/MainItem/MainItem";
 import { useState, useCallback, memo } from "react";
@@ -5,6 +6,7 @@ import { CalcComponent } from "shared/calcs/CalcComponent"
 import { craftCreates } from "shared/craft/craft";
 import { creates } from "shared/craft/creates";
 import { statusHidden } from "shared/craft/statusHidden";
+import './MainPage.scss';
 
 const setStorage = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
@@ -49,8 +51,19 @@ export const MainPage = memo(() => {
         }
     }, [inputsValues]);
 
+    const inputsEnter = useCallback((e) => {
+        const { name, value } = e.target;
+        if (e.key === 'Enter') {
+            setValues({ ...inputsValues, [name]: value });
+            setHidden({ ...hidden, [name]: false }); // show elem
+            setStorage('LOCAL_STORAGE_HIDDEN_STATUS', { ...hidden, [name]: false });
+            setStorage('LOCAL_STORAGE_RESULT_ITEM', inputsValues);
+            setResult(inputsValues); // show result
+        }
+    }, [hidden, inputsValues]);
+
     return (
-        <div>
+        <div className="wrapper">
             <HeaderSales
                 notSales={() => {
                     setSales(false)
@@ -73,13 +86,13 @@ export const MainPage = memo(() => {
             />
             <div className="items-wrapper">
                 <div>
-                    <MainItem src={MainItemSrc.BRONZE} name="bronze" onChange={inputsChange} value={inputsValues.bronze} btnName="bronzeBtn" btnClick={showResult} />
+                    <MainItem src={MainItemSrc.BRONZE} name="bronze" onChange={inputsChange} value={inputsValues.bronze} btnName="bronzeBtn" btnClick={showResult} onClickKey={inputsEnter} />
                     <CalcComponent options={
                         (salesIsland) ? {
-                            iron: String(Number(result.bronze) * 15),
-                            bronze: String(Number(result.bronze) * 6),
-                            coal: String(Number(result.bronze) * 8),
-                            hour: String(Number(result.bronze) * 2)
+                            iron: String(Number(result.bronze) * 14),
+                            bronze: String(Number(result.bronze) * 7),
+                            coal: String(Number(result.bronze) * 1),
+                            hour: String(Number(result.bronze) * 6)
                         } : (sales) ? {
                             iron: String(Number(result.bronze) * 18),
                             bronze: String(Number(result.bronze) * 9),
@@ -95,7 +108,7 @@ export const MainPage = memo(() => {
                     />
                 </div>
                 <div>
-                    <MainItem src={MainItemSrc.BEAM} name="beam" onChange={inputsChange} value={inputsValues.beam} btnName="beamBtn" btnClick={showResult} />
+                    <MainItem src={MainItemSrc.BEAM} name="beam" onChange={inputsChange} value={inputsValues.beam} btnName="beamBtn" btnClick={showResult} onClickKey={inputsEnter} />
                     <CalcComponent options={
                         (salesIsland) ? {
                             wood: String(Number(result.beam) * 70),
@@ -114,11 +127,11 @@ export const MainPage = memo(() => {
                     />
                 </div>
                 <div>
-                    <MainItem src={MainItemSrc.BULKHEAD} name="bulkhead" onChange={inputsChange} value={inputsValues.bulkhead} btnName="bulkheadBtn" btnClick={showResult} />
+                    <MainItem src={MainItemSrc.BULKHEAD} name="bulkhead" onChange={inputsChange} value={inputsValues.bulkhead} btnName="bulkheadBtn" btnClick={showResult} onClickKey={inputsEnter} />
                     <CalcComponent options={
                         (salesIsland) ? {
                             pitch: String(Number(result.bulkhead) * 1),
-                            iron: String(Number(result.bulkhead) * 66),
+                            iron: String(Number(result.bulkhead) * 49),
                             hour: String(Number(result.bulkhead) * 5)
                         } : (sales) ? {
                             pitch: String(Number(result.bulkhead) * 1),
@@ -133,7 +146,7 @@ export const MainPage = memo(() => {
                     />
                 </div>
                 <div>
-                    <MainItem src={MainItemSrc.CANVAS} name="canvas" onChange={inputsChange} value={inputsValues.canvas} btnName="canvasBtn" btnClick={showResult} />
+                    <MainItem src={MainItemSrc.CANVAS} name="canvas" onChange={inputsChange} value={inputsValues.canvas} btnName="canvasBtn" btnClick={showResult} onClickKey={inputsEnter} />
                     <CalcComponent options={
                         (salesIsland) ? {
                             cloth: String(Number(result.canvas) * 10),
@@ -152,7 +165,7 @@ export const MainPage = memo(() => {
                     />
                 </div>
                 <div>
-                    <MainItem src={MainItemSrc.PLATES} name="plates" onChange={inputsChange} value={inputsValues.plates} btnName="platesBtn" btnClick={showResult} />
+                    <MainItem src={MainItemSrc.PLATES} name="plates" onChange={inputsChange} value={inputsValues.plates} btnName="platesBtn" btnClick={showResult} onClickKey={inputsEnter} />
                     <CalcComponent options={
                         (salesIsland) ? {
                             coal: String(Number(result.plates) * 14),
@@ -174,9 +187,7 @@ export const MainPage = memo(() => {
                     />
                 </div>
             </div>
-            <footer>
-
-            </footer>
+            <Footer />
         </div>
     );
 });
