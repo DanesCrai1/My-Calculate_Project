@@ -55,8 +55,8 @@ export const MainPage = memo(() => {
                 notSales={() => {
                     setSales(false)
                     setSalesIsland(false)
-                    localStorage.setItem('LOCAL_STORAGE_SALES', JSON.stringify(false));
-                    localStorage.setItem('LOCAL_STORAGE_SALES_ISLAND', JSON.stringify(false));
+                    setStorage('LOCAL_STORAGE_SALES', false);
+                    setStorage('LOCAL_STORAGE_SALES_ISLAND', false);
                 }}
                 sales={sales} setSales={() => {
                     setSales(true)
