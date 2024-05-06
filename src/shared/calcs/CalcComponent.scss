@@ -1,7 +1,7 @@
 .vision {
     position: relative;
     background-color: rgb(46,48,50);
-    border: 2px solid #633;
+    border: 2px solid white;
     font-family: Verdana, Geneva, Tahoma, "Arial", sans-serif;
     font-size: 22px;
     width: 333.5px;
@@ -15,7 +15,7 @@
 .close_vision_bg {
     color: white;
     position: absolute;
-    background-color: red;
+    background-color: none;
 
     width: 30px;
     height: 30px;
@@ -37,5 +37,5 @@
 }
 
 .close_vision_bg:hover {
-    background: rgb(255, 112, 112);
+    color: #DCDCDC;
 }

@@ -21,17 +21,19 @@ export const HeaderSales = memo((props: HeaderSalesProps) => {
     return (
         <header className='header_sales'>
             <div className='wrapper_sales'>
-                <button className={`btn_sales btn_not_sales ${!sales && !salesIsland ? 'active' : ''}`} onClick={notSales}>Цена без скидки</button>
+                <div className={`block_sales ${!sales && !salesIsland ? 'active' : ''}`} onClick={notSales}>
+                    <button className={`btn_sales btn_not_sales`}>00%</button>
+                </div>
             </div>
             <div className='wrapper_sales'>
-                <div className='block_sales'>
-                    <button onClick={setSales} className={`btn_sales ${sales ? 'active' : ''}`}>Скидка за навыки</button>
+                <div className={`block_sales ${sales ? 'active' : ''}`} onClick={setSales}>
+                    <button className={`btn_sales`}>10%</button>
                     <img src={require('shared/assets/image/addons/sales.svg').default} alt='Sales' className='sales_svg' />
                 </div>
             </div>
             <div className='wrapper_sales'>
-                <div className='block_sales'>
-                    <button onClick={setSalesIsland} className={`btn_sales ${salesIsland ? 'active' : ''}`}>Островная скидка</button>
+                <div className={`block_sales ${salesIsland ? 'active' : ''}`} onClick={setSalesIsland}>
+                    <button className={`btn_sales`}>30%</button>
                     <img src={require('shared/assets/image/addons/salesIsland.svg').default} alt='SalesIsland' className='sales_svg' />
                 </div>
             </div>

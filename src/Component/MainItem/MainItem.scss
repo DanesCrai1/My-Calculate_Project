@@ -11,7 +11,7 @@
 
     width: 335px;
     height: 64px;
-    border: 1px solid #633;
+    border: 1px solid white;
 }
 
 .place_input {
@@ -25,6 +25,7 @@
     border: none;
     height: 23px;
     width: 77.55px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .place_btn {
@@ -39,6 +40,11 @@
     
     border: none;
     border-radius: 6px;
+}
+
+.place_btn:hover {
+    background: #DCDCDC;
+    color: #333;
 }
 
 input:focus,
@@ -56,9 +62,4 @@ img {
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
     user-select: none; /* Non-prefixed version, currently */
-}
-
-button:hover {
-    background-color: #ececec;
-    cursor: pointer;
 }
