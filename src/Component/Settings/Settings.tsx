@@ -38,13 +38,13 @@ export const Settings = (props: SettingsProps) => {
     return (
         <div className="settings">
             <div className='settings_container'>
-                <p>Сохранить открытые окна</p>
+                <p>Сохранить результаты рассчетов</p>
                 {
                     options.savingWindows ? <button onClick={() => toggleOption('savingWindows')}>Включено</button> : <button onClick={() => toggleOption('savingWindows')}>Не работает</button>
                 }
             </div>
             <div className='settings_container'>
-                <p>Сохранить числа в калькуляторе</p>
+                <p>Сохранить введенные числа в полях</p>
                 {
                     options.savingValues ? <button onClick={() => toggleOption('savingValues')}>Включено</button> : <button onClick={() => toggleOption('savingValues')}>Не работает</button>
                 }

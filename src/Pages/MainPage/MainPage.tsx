@@ -175,9 +175,9 @@ export const MainPage = memo(() => {
                     <MainItem src={MainItemSrc.PLATES} name="plates" onChange={inputsChange} value={inputsValues.plates} btnName="platesBtn" btnClick={showResult} onClickKey={inputsEnter} />
                     <CalcComponent options={
                         (salesIsland) ? {
-                            coal: String(Number(result.plates) * 14),
-                            pitch: String(Number(result.plates) * 4),
-                            iron: String(Number(result.plates) * 27),
+                            coal: String(Number(result.plates) * 11),
+                            pitch: String(Number(result.plates) * 3),
+                            iron: String(Number(result.plates) * 21),
                             hour: String(Number(result.plates) * 6)
                         } : (sales) ? {
                             coal: String(Number(result.plates) * 14),
