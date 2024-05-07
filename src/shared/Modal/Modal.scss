@@ -54,7 +54,7 @@
     font-size: 13px;
 }
 
-.modal_container_header {
+.modal_container_header_sales {
     margin-top: 10px;
     margin: 10px auto 10px auto;
     border: 2px solid #333;
@@ -67,7 +67,13 @@
     user-select: none;
 }
 
-.modal_header {
+.modal_header_sales {
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+.modal_header_sales {
     background: #333;
     color: white;
     width: 38px;

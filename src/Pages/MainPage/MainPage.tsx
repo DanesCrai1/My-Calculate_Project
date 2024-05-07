@@ -1,43 +1,44 @@
 import { Footer } from "Component/Footer/Footer";
 import { HeaderSales } from "Component/HeaderSales/HeaderSales"
 import MainItem, { MainItemSrc } from "Component/MainItem/MainItem";
-import { useState, useCallback, memo } from "react";
+import { useState, useCallback, memo, useEffect } from "react";
 import { CalcComponent } from "shared/calcs/CalcComponent"
 import { craftCreates } from "shared/craft/craft";
 import { creates } from "shared/craft/creates";
 import { statusHidden } from "shared/craft/statusHidden";
 import './MainPage.scss';
-
-const setStorage = (key, value) => {
-    localStorage.setItem(key, JSON.stringify(value));
-}
-
-const getStorage = (key, value) => {
-    if (localStorage.getItem(key)) {
-        return JSON.parse(localStorage.getItem(key));
-    }
-    return value;
-}
+import { optionsApp } from "shared/craft/optionsApp";
+import { Modal } from "shared/Modal/Modal";
+import { Settings } from "Component/Settings/Settings";
+import { getStorage, setStorage } from "shared/functions/storage";
 
 export const MainPage = memo(() => {
+    const [options, setOptions] = useState(getStorage('LOCAL_STORAGE_OPTIONS_APP', optionsApp));
     const [inputsValues, setValues] = useState(getStorage('LOCAL_STORAGE_RESULT_ITEM', creates));
     const [result, setResult] = useState(getStorage('LOCAL_STORAGE_RESULT_ITEM', craftCreates));
     const [hidden, setHidden] = useState(getStorage('LOCAL_STORAGE_HIDDEN_STATUS', statusHidden));
     const [sales, setSales] = useState(getStorage('LOCAL_STORAGE_SALES', false));
     const [salesIsland, setSalesIsland] = useState(getStorage('LOCAL_STORAGE_SALES_ISLAND', false));
+    const [modalOptions, setModalOptions] = useState(true);
+
+    useEffect(() => { // work options
+        if (options.savingValues) {
+            setStorage('LOCAL_STORAGE_RESULT_ITEM', inputsValues);
+        }
+        if (options.savingWindows) {
+            setStorage('LOCAL_STORAGE_HIDDEN_STATUS', hidden);
+        }
+    }, [hidden, inputsValues, options.savingValues, options.savingWindows]);
 
     const showResult = useCallback((e) => {
         const name = e.target.name.match(/^(.*)Btn/)[1]; // name: bronze | beam | bulkhead | canvas | plates
 
         setHidden({ ...hidden, [name]: false }); // show elem
-        setStorage('LOCAL_STORAGE_HIDDEN_STATUS', { ...hidden, [name]: false });
-        setStorage('LOCAL_STORAGE_RESULT_ITEM', inputsValues);
         setResult(inputsValues); // show result
     }, [hidden, inputsValues]);
 
     const hideResult = useCallback((name) => {
         setHidden({ ...hidden, [name]: true }); // hidden elem
-        setStorage('LOCAL_STORAGE_HIDDEN_STATUS', { ...hidden, [name]: true });
     }, [hidden]);
 
     const inputsChange = useCallback((e) => {
@@ -45,7 +46,6 @@ export const MainPage = memo(() => {
         if (value.length <= 5) {
             setValues({ ...inputsValues, [name]: value });
         }
-
         if (Number(value) < 0 || value === '0') {
             setValues({ ...inputsValues, [name]: '1' });
         }
@@ -56,33 +56,40 @@ export const MainPage = memo(() => {
         if (e.key === 'Enter') {
             setValues({ ...inputsValues, [name]: value });
             setHidden({ ...hidden, [name]: false }); // show elem
-            setStorage('LOCAL_STORAGE_HIDDEN_STATUS', { ...hidden, [name]: false });
-            setStorage('LOCAL_STORAGE_RESULT_ITEM', inputsValues);
             setResult(inputsValues); // show result
         }
     }, [hidden, inputsValues]);
 
+    const showModal = () => {
+        setModalOptions(!modalOptions);
+    }
+
     return (
         <div className="wrapper">
+            <Modal hidden={modalOptions} hiddenModal={showModal} header={'Настройки'}>
+                <Settings options={options} setOption={setOptions}/>
+            </Modal>
+            <div className="option" onClick={showModal}><img src={require("shared/assets/image/addons/option.svg").default} alt="option" /></div>
             <HeaderSales
                 notSales={() => {
-                    setSales(false)
-                    setSalesIsland(false)
+                    setSales(false);
+                    setSalesIsland(false);
                     setStorage('LOCAL_STORAGE_SALES', false);
                     setStorage('LOCAL_STORAGE_SALES_ISLAND', false);
                 }}
                 sales={sales} setSales={() => {
-                    setSales(true)
-                    setSalesIsland(false)
+                    setSales(true);
+                    setSalesIsland(false);
                     setStorage('LOCAL_STORAGE_SALES', true);
                     setStorage('LOCAL_STORAGE_SALES_ISLAND', false);
                 }}
                 salesIsland={salesIsland} setSalesIsland={() => {
-                    setSales(false)
-                    setSalesIsland(true)
+                    setSales(false);
+                    setSalesIsland(true);
                     setStorage('LOCAL_STORAGE_SALES', false);
                     setStorage('LOCAL_STORAGE_SALES_ISLAND', true);
                 }}
+                option={options.autoCloseSpoilers}
             />
             <div className="items-wrapper">
                 <div>

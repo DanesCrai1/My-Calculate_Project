@@ -3,3 +3,11 @@
     flex-direction: column;
     height: 100vh;
 }
+
+.option {
+    position: fixed;
+    right: 5px;
+    top: 20px;
+    z-index: 99;
+    cursor: pointer;
+}

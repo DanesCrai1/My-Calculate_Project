@@ -8,6 +8,7 @@ interface HeaderSalesProps {
     salesIsland: boolean;
     setSalesIsland: () => void;
     notSales: () => void;
+    option: boolean;
 }
 
 const enum SalesModal {
@@ -22,35 +23,38 @@ export const HeaderSales = memo((props: HeaderSalesProps) => {
         setSales,
         salesIsland,
         setSalesIsland,
-        notSales
+        notSales,
+        option
     } = props;
     const [hiddenModal, setHiddenModal] = useState(true);
     const [contentModal, setContentModal] = useState('');
     const [headerModal, setHeaderModal] = useState('');
 
     const handleModalToggle = (name) => {
-        setHiddenModal(!hiddenModal);
-        switch (name) {
-            case 'not_sales':
-                setHeaderModal('00%');
-                setContentModal('Скидки от навыков не учитываются, создание предметов будет рассчитано без применения бонусов.');
-                break;
-            case 'sales':
-                setHeaderModal('10%');
-                setContentModal('Учитываются скидки от навыков, что позволит рассчитать создание предметов с применением бонусов.');
-                break;
-            case 'sales_island':
-                setHeaderModal('30%');
-                setContentModal('Учитываются бонусы, действующие на личном острове, что позволит рассчитать создание предметов с максимальной выгодой.');
-                break;
-            default:
-                setContentModal('');
+        if (option) {
+            setHiddenModal(!hiddenModal);
+            switch (name) {
+                case 'not_sales':
+                    setHeaderModal('00%');
+                    setContentModal('Скидки от навыков не учитываются, создание предметов будет рассчитано без применения бонусов.');
+                    break;
+                case 'sales':
+                    setHeaderModal('10%');
+                    setContentModal('Учитываются скидки от навыков, что позволит рассчитать создание предметов с применением бонусов.');
+                    break;
+                case 'sales_island':
+                    setHeaderModal('30%');
+                    setContentModal('Учитываются бонусы, действующие на личном острове, что позволит рассчитать создание предметов с максимальной выгодой.');
+                    break;
+                default:
+                    setContentModal('');
+            }
         }
     }
 
     return (
         <>
-            <Modal header={headerModal} hidden={hiddenModal} hiddenModal={handleModalToggle}>{contentModal}</Modal>
+            <Modal header={headerModal} hidden={hiddenModal} hiddenModal={handleModalToggle} sales={true}>{contentModal}</Modal>
             <header className='header_sales'>
                 <div className='wrapper_sales'>
                     <div className={`block_sales ${!sales && !salesIsland ? 'active' : ''}`} onClick={() => { notSales(); handleModalToggle(SalesModal.NOT_SALES) }}>
