@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/app-calculate-wosb/static/css/main.dc83ac74.css",
-    "main.js": "/app-calculate-wosb/static/js/main.fb93bbe4.js",
+    "main.js": "/app-calculate-wosb/static/js/main.131abe84.js",
     "static/media/salesIsland.svg": "/app-calculate-wosb/static/media/salesIsland.6a8e60bb30b62e3672a16f97e95b5450.svg",
     "static/media/sales.svg": "/app-calculate-wosb/static/media/sales.2eaf5937b92eaac20c48d21a26f8e965.svg",
     "static/media/option.svg": "/app-calculate-wosb/static/media/option.096553eaa29bc43e34c26d44e803d303.svg",
     "index.html": "/app-calculate-wosb/index.html",
     "main.dc83ac74.css.map": "/app-calculate-wosb/static/css/main.dc83ac74.css.map",
-    "main.fb93bbe4.js.map": "/app-calculate-wosb/static/js/main.fb93bbe4.js.map"
+    "main.131abe84.js.map": "/app-calculate-wosb/static/js/main.131abe84.js.map"
   },
   "entrypoints": [
     "static/css/main.dc83ac74.css",
-    "static/js/main.fb93bbe4.js"
+    "static/js/main.131abe84.js"
   ]
 }
