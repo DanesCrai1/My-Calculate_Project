@@ -1,11 +1,15 @@
 import { MainPage } from 'Pages/MainPage/MainPage';
 import './App.css';
 import { memo } from 'react';
+import { Modal } from 'shared/Modal/Modal';
 
 
 const App = () => {
   return (
-    <MainPage />
+    <>
+      <Modal>Текст</Modal>
+      <MainPage />
+    </>
   );
 }
 

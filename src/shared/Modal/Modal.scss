@@ -1,0 +1,90 @@
+.modal_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.modal_window {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 20px;
+    
+    /* Стили для фокусировки на элементе */
+    box-shadow: 0 0 10px rgba(255, 250, 250, 0.5);
+    z-index: 1000;
+    user-select: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal_content {
+    padding: 0px 10px 0px 10px;
+    margin: 0px;
+}
+
+.modal_block_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_header {
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    margin: 0px;
+}
+
+.modal_spoiler {
+    padding: 0px 0px 0px 10px;
+    margin: 0px;
+    margin-top: auto;
+    color: #333333c4;
+    position: absolute;
+    top: 260px;
+    font-size: 13px;
+}
+
+.modal_container_header {
+    margin-top: 10px;
+    margin: 10px auto 10px auto;
+    border: 2px solid #333;
+    height: 45px;
+    width: 80px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+}
+
+.modal_header {
+    background: #333;
+    color: white;
+    width: 38px;
+    height: 30px;
+    margin: auto;
+    border-radius: 15px;
+}
+
+.modal_close_elem {
+    color: #333;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+}
+
+.modal_close_elem:hover {
+    color: #DCDCDC;
+    cursor: pointer;
+}
