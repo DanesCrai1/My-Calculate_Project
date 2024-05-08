@@ -39,20 +39,23 @@ export const Settings = (props: SettingsProps) => {
         <div className="settings">
             <div className='settings_container'>
                 <p>Сохранить результаты рассчетов</p>
-                {
-                    options.savingWindows ? <button onClick={() => toggleOption('savingWindows')}>Включено</button> : <button onClick={() => toggleOption('savingWindows')}>Не работает</button>
+                {options.savingWindows
+                    ? <button onClick={() => toggleOption('savingWindows')}>Включено</button>
+                    : <button onClick={() => toggleOption('savingWindows')}>Не работает</button>
                 }
             </div>
             <div className='settings_container'>
                 <p>Сохранить введенные числа в полях</p>
-                {
-                    options.savingValues ? <button onClick={() => toggleOption('savingValues')}>Включено</button> : <button onClick={() => toggleOption('savingValues')}>Не работает</button>
+                {options.savingValues
+                    ? <button onClick={() => toggleOption('savingValues')}>Включено</button>
+                    : <button onClick={() => toggleOption('savingValues')}>Не работает</button>
                 }
             </div>
             <div className='settings_container'>
                 <p>Подсказки новому пользователю</p>
-                {
-                    options.autoCloseSpoilers ? <button onClick={() => toggleOption('autoCloseSpoilers')}>Включено</button> : <button onClick={() => toggleOption('autoCloseSpoilers')}>Не работает</button>
+                {options.autoCloseSpoilers
+                    ? <button onClick={() => toggleOption('autoCloseSpoilers')}>Включено</button>
+                    : <button onClick={() => toggleOption('autoCloseSpoilers')}>Не работает</button>
                 }
             </div>
         </div>
