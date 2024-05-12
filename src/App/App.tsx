@@ -1,15 +1,15 @@
+import './App.scss';
 import { MainPage } from 'Pages/MainPage/MainPage';
-import './App.css';
 import { memo } from 'react';
-import { Modal } from 'shared/Modal/Modal';
-
+import { useTheme } from './providers/ThemeContext/ThemeContext';
 
 const App = () => {
+  const { theme } = useTheme();
+
   return (
-    <>
-      <Modal>Текст</Modal>
+    <div className='wrapper-app' id={theme}>
       <MainPage />
-    </>
+    </div>
   );
 }
 

@@ -16,7 +16,14 @@ code {
 }
 
 :root {
-  background-color: $background-bg;
   width: 100%;
   margin: auto;
+}
+
+#dark {
+  background-color: #333;;
+}
+
+#light {
+  background-color: #b8b7b7;
 }

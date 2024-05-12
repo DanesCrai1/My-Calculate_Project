@@ -1,6 +1,7 @@
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import './Settings.scss';
 import { setStorage } from 'shared/functions/storage';
+import { Themes, useTheme } from 'App/providers/ThemeContext/ThemeContext';
 
 interface SettingsProps {
     options?: {
@@ -11,11 +12,12 @@ interface SettingsProps {
     setOption?: (name) => void;
 }
 
-export const Settings = (props: SettingsProps) => {
+export const Settings = memo((props: SettingsProps) => {
     const {
         options,
         setOption
     } = props;
+    const { theme, switchTheme } = useTheme();
 
     const toggleOption = useCallback((name) => {
         setOption({ ...options, [name]: !options[name] });
@@ -58,6 +60,12 @@ export const Settings = (props: SettingsProps) => {
                     : <button onClick={() => toggleOption('autoCloseSpoilers')}>Не работает</button>
                 }
             </div>
+            <div className='theme-app'>
+                {theme === Themes.LIGHT
+                    ? <img src={require('shared/assets/image/addons/sun.svg').default} onClick={switchTheme} alt='Солнце' className='settings_icon'/>
+                    : <img src={require('shared/assets/image/addons/moon.svg').default} onClick={switchTheme} alt='Луна' className='settings_icon'/>
+                }
+            </div>
         </div>
     );
-};
+});

@@ -14,6 +14,7 @@
     color: white;
     background: none;
     transition: all 0.1s;
+    font-weight: bold;
 }
 
 .wrapper_sales {
@@ -52,5 +53,4 @@
 .block_sales:hover {
     cursor: pointer;
     border: 2px solid #DCDCDC;
-    transition: all 0.1s;
 }

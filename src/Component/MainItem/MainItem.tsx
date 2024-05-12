@@ -1,5 +1,6 @@
 import { memo } from 'react';
 import './MainItem.scss';
+import { useTheme } from 'App/providers/ThemeContext/ThemeContext';
 
 export const MainItemSrc = {
     BEAM: require('shared/assets/image/Creates/beam.jpg'),
@@ -31,11 +32,12 @@ const MainItem = (props: MainItemProps) => {
         btnClick,
         btnName
     } = props;
-
+    const { theme } = useTheme();
+    
     return (
         <div className='wrapper_block_place'>
             <div className='block_place'>
-                <img src={src} alt={alt} className='img_create'/>
+                <img src={src} alt={alt} className={`img_create_${theme}`}/>
                 <div className='place_calc'>
                 <input type="number" placeholder="" className='place_input' value={value} onChange={onChange} onKeyUp={onClickKey} name={name} />
                 <button onClick={btnClick} name={btnName} className='place_btn'>Рассчитать</button>

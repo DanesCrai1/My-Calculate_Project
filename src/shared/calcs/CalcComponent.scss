@@ -1,4 +1,4 @@
-.vision {
+.vision_dark {
     position: relative;
     background-color: rgb(46,48,50);
     border: 2px solid white;
@@ -8,6 +8,19 @@
     margin: 40px 0px 0px 20px;
     border-radius: 6px;
     color: #DCDCDC;
+    font-weight: bold;
+}
+
+.vision_light {
+    position: relative;
+    background-color: rgb(46,48,50);
+    border: 1.5px solid #333;
+    font-family: Verdana, Geneva, Tahoma, "Arial", sans-serif;
+    font-size: 22px;
+    width: 333.5px;
+    margin: 40px 0px 0px 20px;
+    border-radius: 6px;
+    color: white;
     font-weight: bold;
 }
 

@@ -1,4 +1,16 @@
-footer {
+.footer {
+    margin-bottom: 5px;
+}
+
+.footer_light {
+    color: #333;
+    text-align: center;
+    margin-top: 40px;
+    padding: 2px 10px;
+    font-size: 9px;
+}
+
+.footer_dark {
     color: white;
     text-align: center;
     margin-top: 40px;
@@ -6,6 +18,10 @@ footer {
     font-size: 9px;
 }
 
-footer > span {
+.footer_dark > span {
+    margin: 0px;
+}
+
+.footer_light > span {
     margin: 0px;
 }

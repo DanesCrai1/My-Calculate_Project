@@ -5,7 +5,7 @@
     margin: 100px 20px;
 }
 
-.img_create {
+.img_create_dark {
     position: absolute;
     height: auto;
 
@@ -13,6 +13,16 @@
     height: 64px;
     border: 1px solid white;
 }
+
+.img_create_light {
+    position: absolute;
+    height: auto;
+
+    width: 335px;
+    height: 64px;
+    border: 1px solid #333;
+}
+
 
 .place_input {
     position: absolute;

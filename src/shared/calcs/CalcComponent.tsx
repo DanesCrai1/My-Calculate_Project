@@ -1,6 +1,8 @@
 import { ResultItem, ResultItemSrc } from 'Component/ResultItem/ResultItem';
 import './CalcComponent.scss';
 import { memo } from 'react';
+import { getStorage } from 'shared/functions/storage';
+import { useTheme } from 'App/providers/ThemeContext/ThemeContext';
 
 interface CalcComponentProps {
     count?: string | number;
@@ -39,13 +41,14 @@ export const CalcComponent = memo((props: CalcComponentProps) => {
             hour: ""
         }
     } = props;
+    const { theme } = useTheme();
 
     if (hidden && hidden[nameHidden]) {
         return null;
     }
 
     return (
-        <div className="vision">
+        <div className={`vision_${theme}`}>
             {Object.keys(options).map((key) => {
                 const value = options[key];
                 if (value) {
