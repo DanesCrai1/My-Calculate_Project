@@ -1,0 +1,23 @@
+.items-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  width: 900px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.wrapper-sales {
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 900px) {
+  .items-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

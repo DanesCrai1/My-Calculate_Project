@@ -56,7 +56,7 @@ export const CalcComponent = memo((props: CalcComponentProps) => {
                 }
                 return null;
             })}
-            <div className='close_vision_bg' onClick={() => hideResult(nameHidden)}>
+            <div className={`close_vision_bg close_vision_bg_${theme}`} onClick={() => hideResult(nameHidden)}>
                 <span>X</span>
             </div>
         </div>
